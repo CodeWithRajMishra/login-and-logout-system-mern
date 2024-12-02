@@ -19,7 +19,7 @@ const Registration=()=>{
     e.preventDefault();
     let api="http://localhost:8000/users/registration";
     axios.post(api, input).then((res)=>{
-        message.success("You are succesfully registered!!");
+        message.success(res.data.msg);
     })
   }
 
