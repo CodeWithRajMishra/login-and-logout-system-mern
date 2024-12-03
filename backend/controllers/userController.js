@@ -30,7 +30,7 @@ const userCheck=async(req, res)=>{
         }
         else 
         {
-            res.send({msg:"Sab sahi hai Login"})
+            res.send({Data:User, msg:"Sab sahi hai Login"})
         }
     }
     else 
