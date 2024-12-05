@@ -7,14 +7,16 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import axios from "axios";
 import {message} from "antd";
+import { useNavigate } from "react-router-dom";
 
 const Header=()=>{
-
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
    const [input, setInput] = useState({});
+
+
+    const navigate= useNavigate();
 
     const handleInput=(e)=>{
        let name=e.target.name; 
@@ -26,7 +28,14 @@ const Header=()=>{
         e.preventDefault();
         let api="http://localhost:8000/users/usercheck";
         axios.post(api, input).then((res)=>{
+                        console.log(res.data.Data[0].name);
+                        console.log(res.data.Data[0].email);
+                        window.localStorage.setItem("userName", res.data.Data[0].name);
+                        window.localStorage.setItem("userEmail", res.data.Data[0].email);
                         message.success(res.data.msg);
+
+                        navigate("/dashboard");
+
                 }).catch((err)=>{
                     message.error(err.response.data.msg);
                 })

@@ -15,3 +15,28 @@
     padding: 30px;
     margin-top: 50px;
 }
+
+
+#adminDashboard
+{
+  padding: 20px;
+  text-align: right;
+  background-color: lightblue;
+}
+
+#adminDash
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+#adminMenu
+{
+  width: 20%;
+}
+
+
+#adminData
+{
+  width: 80%;
+}
